@@ -1,13 +1,22 @@
 const stockBuySell=(arr)=>{
     let len = arr.length;
-    let maxSellingPrice=0;
-    for(let i=0;i<len-1;i++){
-        for(j=i+1;j<len;j++){
-            maxSellingPrice=Math.max(maxSellingPrice,arr[j]-arr[i]);
+    let maxProfit=0;
+    let minPrice=Infinity;
+    // for(let i=0;i<len-1;i++){
+    //     for(j=i+1;j<len;j++){
+    //         maxSellingPrice=Math.max(maxSellingPrice,arr[j]-arr[i]);
+    //     }
+    // }
+
+    for(let i=0;i<len;i++){
+        if(arr[i]<minPrice){
+            minPrice=arr[i];
+        }else if( arr[i]-minPrice>maxProfit){
+            maxProfit=arr[i]-minPrice;
         }
     }
 
-    return maxSellingPrice;
+    return maxProfit;
 }
 
 // Drive code 
