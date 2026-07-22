@@ -1,22 +1,15 @@
 const leadersInArray = (arr) => {
     let len = arr.length;
     let res = [];
-    for (let i = 0; i < len; i++) {
-
-        let isLeader=true;
-
-        for (let j = i + 1; j < len; j++) {
-            if(arr[i]<=arr[j]){
-                isLeader=false;
-                break;
-            }
+    let suffixMax=arr[len-1];
+    res.push(suffixMax);
+    for(let i=len-2;i>=0;i--){
+        if(arr[i]>=suffixMax){
+            suffixMax=arr[i];
+            res.push(suffixMax);
         }
-        if (isLeader) {
-            res.push(arr[i]);
-        }
-
     }
-    return res;
+    return res.reverse();
 }
 
 /// drive out 
