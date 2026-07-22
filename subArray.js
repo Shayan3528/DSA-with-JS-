@@ -11,11 +11,8 @@ const subArray=(arr)=>{
                 temp.push(arr[i]);
             }
             subArr.push(temp);
-
-
         }
     }
-
     return subArr;
 }
 
