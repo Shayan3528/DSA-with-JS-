@@ -3,21 +3,19 @@ const toggling = (s) => {
     let result = "";
 
     for (let i = 0; i < len; i++) {
-        let value = s[i].charCodeAt(0);
-        if (value >= 65 && value <= 90){
-            result += String.fromCharCode(value+32); 
-        }else if(value>=97 && value<=122){
-            result += String.fromCharCode(value-32);
-        }else{
-            result +=s[i];
+        let code = s[i].charCodeAt(0);
+        if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) {
+            code ^= (1 << 5);
         }
+
+        result += String.fromCharCode(code);
     }
-    return result; 
+    return result;
 
 }
 
 /// Drive code 
-let s = "@aBC";
+let s = "@ABC-BRahmanbaria";
 let res = toggling(s);
 console.log(res);
 
